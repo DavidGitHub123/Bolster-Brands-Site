@@ -1,0 +1,359 @@
+:root {
+  --modal-duration: 1s;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  color: #104db0;
+  transition: transform 0.3s ease;
+}
+
+/* Header */
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 38px;
+}
+
+.left-side {
+  font-size: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .brand span {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-container {
+    max-width: 300px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.nav-wrapper > .right-side {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #104db0;
+  padding-top: 10px;
+  /* display: flex; */
+}
+
+.nav-link-wrapper {
+  height: 28px;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.5s;
+}
+
+.active-nav-link {
+  border-bottom: 1px solid #104db0;
+  margin-left: 40px;
+}
+
+.active-nav-link a {
+  color: #104db0 !important;
+  margin-left: 40px;
+}
+
+.nav-link-wrapper a {
+  color: #8a8a8a;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+.nav-link-wrapper:hover {
+  border-bottom: 1px solid #104db0;
+}
+
+.nav-link-wrapper a:hover {
+  color: black;
+}
+
+span {
+  font-size: 0.65em;
+}
+
+.cta-btn {
+  padding: 10px 20px;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+.cta-btn:hover {
+  color: #fff;
+  background: #104db0;
+  cursor: pointer;
+  border: 1px solid #104db0;
+}
+
+.cta-btn:focus {
+  outline: none;
+}
+
+/* Grid/Main Content Blocks */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+/* Boxes */
+
+.portfolio-item-wrapper {
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+}
+
+.portfolio-img-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+  width: 100%;
+}
+
+.img-text-wrapper {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.img-text-wrapper .subtitle {
+  transition: 1s;
+  color: transparent;
+}
+
+.image-blur {
+  transition: 1s;
+  filter: brightness(10%);
+}
+
+.img-text-wrapper:hover .subtitle {
+  color: lightseagreen;
+  font-weight: 600;
+}
+
+.logo-wrapper img {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-image-wrapper img {
+  width: 100%;
+}
+
+.profile-content-wrapper {
+  padding: 30px;
+}
+
+.profile-content-wrapper h1 {
+  color: lightseagreen;
+}
+
+.logo-spin {
+  transition: transform 0.7s ease-in-out;
+}
+.logo-spin:hover {
+  transform: rotate(360deg);
+}
+
+/* Sidebar */
+
+/* Signup Modal Button */
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-container.show-modal {
+  display: block;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  width: 400px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.close-btn {
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modal-header {
+  background: #104db0;
+  color: #fff;
+  padding: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  /* border-bottom: 1px solid #333; */
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-form div {
+  padding: 5px 0;
+}
+
+.modal-form label {
+  display: block;
+  padding-bottom: 8px;
+}
+
+.modal-form .form-input {
+  padding: 8px;
+  width: 90%;
+}
+
+.submit-btn {
+  background-color: #104db0;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%;
+}
+
+/* Toggle Button to reveal vertical navbar */
+
+.toggle {
+  background-color: transparent;
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  color: #104db0;
+  transition: transform 0.3s ease;
+} */
+
+body.show-nav {
+  transform: translateX(125px);
+}
+
+.navbar {
+  background-color: #104db0;
+  opacity: 50%;
+  border-right: 2px solid rgba(200, 200, 200, 0.1);
+  color: #fff;
+  position: absolute;
+  top: 10;
+  left: 20;
+  width: 125px;
+  transform: translateY(-100%);
+}
+
+.hidden {
+  display: none;
+}
+
+/* nav .logo {
+  padding: 30px 0;
+  text-align: center;
+}
+
+nav .logo img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+} */
+
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+nav ul li {
+  border-bottom: 2px solid rgba(200, 200, 200, 0.1);
+  padding: 10px;
+}
+
+nav ul li:first-of-type {
+  border-top: 2px solid rgba(200, 200, 200, 0.1);
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
